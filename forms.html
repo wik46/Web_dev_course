@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 align="middle">Forms</h1>
+        <p align="middle">Note that form processing will be done later.</p>
+        <hr>
+        <form>
+            <!-- placeholder and value is not the ame-->
+            <p>Username: <input type="text" placeholder="dummy value"></p>
+            <p>Keep me logged in <input type="checkbox"></p>
+            <!-- We use the same name so that user only click one.-->
+            <p>Under 18 <input type="radio" name="age"></p>
+            <p>Over 18 <input type="radio" name="age"></p>
+            
+            <!-- This is a dropdown. -->
+            <p> Dropdown items:
+                <select>
+                    <option>Option 1</option>
+                    <!-- selected makes option appear as default.-->
+                    <option selected>Option 2</option>
+                    <option>Option 3</option>
+                </select>
+            </p>
+
+            <p>Enter your email: <input type="email" placeholder="example@domain.com" ></p>
+
+            <p><input type="submit" value="click here"></p>
+        </form>
+        
+    </body>
+
+</html>
