@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Note that you need to split the key:value pairs with semi-colons. -->
+        <style type="text/css">
+            h1 {
+                font-family: monospace;
+            }
+            
+            p {
+                font-family:'Courier New', Courier, monospace ;
+                color: firebrick;
+                font-size: 150%;
+            }
+
+            .red{
+                color:red;
+            }
+
+            .large {
+                font-size: 200%;
+            }
+
+            .underlined{
+                text-decoration: underline;
+            }
+
+            #i_am_id{
+                color: royalblue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="red" align="middle" >Method 2: Internal CSS</h1>
+        <hr>
+        <p>Paragraph 1 and 2 will be styled using internal css.</p>
+        <p>This is a new paragraph tag.</p>
+        <!-- but if we want to override default values, we can use classes.-->
+        <!-- You can have more than 1 class. -->
+        <p class="red large">This is part of the red class.</p>
+
+        <p id="i_am_id">This is a focus of id's, instead if a dot we use a hash.
+            Id's should only be used once per page.
+            <span class="red underlined">
+                This area is inside the paragraph and we use <strong>span</strong> to customize even further.
+            </span>
+            This is outside the span tag again.
+        </p>
+    </body>
+</html>  
