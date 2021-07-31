@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Note that fill is used to change the color of the rectangle. -->
+        <style type="text/css">
+            h1 {
+                font-family: monospace;
+                text-align: center;
+            }
+            p{
+                text-align: center;
+            }
+
+            .head_background{
+                background-color: rgb(163, 163, 163);
+                margin:0mm;
+                opacity: 0.8;
+
+            }
+            .first_div{
+                background-color:lightgrey;
+                width:200px;
+                height:200px;
+                position: relative;
+                z-index: 2;
+                
+            }
+            .second_div{
+                background-color: burlywood;
+                width:200px;
+                height:300px;
+                position: absolute;
+                left:200px;
+                opacity: 0.5;
+                z-index: 2;
+            }
+
+            .third_div{
+                background-color: lime;
+                width: 500px;
+                height: 100px;
+                position: fixed;
+                left: 700px;
+                top: 100px;
+                z-index: 3;
+            }
+            .fourth_div{
+                background-color: mediumseagreen;
+                width:500px;
+                height: 1000px;
+                position:relative;
+                left:200px;
+                top:200px;
+                z-index: 1;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <div class="head_background">
+            <h1>This HTML looks at the 3 different positioning types.</h1>
+            <p>It is used to change the positioning of the html elements.</p>
+            <p>
+                <ul>
+                    <li><strong>Relative:</strong> relative to its default position.</li>
+                    <li><strong>Absoulte:</strong> relative to top left corner and other elements
+                        don't see it anymore.
+                    <li><strong>Fixed:</strong> similar to absolute, but if user scrolls it stays in place.</li>
+                </ul>
+            </p>
+        </div>
+        <hr>
+
+        <!-- svg is the size of the canvas we draw on. -->
+        <div class="first_div">
+            <p>This object is set with the highest z-index.</p>
+        </div>
+        <div class="second_div">
+            <p>This object is moved using an absolute positioning.</p>
+        </div>
+        <div class="third_div">
+            <p>Fixed positioning will work well with for a nav-bar or a button
+                that you want on the screen. Also, because it has the highest z-index
+                it will always be on top.
+            </p>
+        </div>
+        <div class="fourth_div">
+            <!-- This is only used to make the page long enough to scroll. -->
+            <p>This division is only used so that we can scroll down and
+                test the fixed positioning.
+            </p>
+        </div>
+
+    </body>
+</html>

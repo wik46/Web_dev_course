@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Note that fill is used to change the color of the rectangle. -->
+        <style type="text/css">
+            h1 {
+                font-family: monospace;
+                text-align: center;
+            }
+            p{
+                text-align: center;
+            }
+            svg{
+                width: 250px;
+                height: 250px;
+                border: solid black;
+            }
+            .head_background{
+                background-color: rgb(94, 94, 94);
+                margin:0mm;
+            }
+            .first_div{
+                background-color:lightgrey;
+                width:400px;
+                height:350px;
+                float:left;
+            }
+            .second_div{
+                background-color: burlywood;
+                width:400px;
+                height:350px;
+                float: right;
+            }
+
+            #rec1 {
+                fill:  #002771;
+            }
+            #circ1{
+                fill: #A04000;
+            }
+            #ell1{
+                fill:#1E8449;
+            }
+            .clear-float{
+                clear:both;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="head_background">
+            <h1>This html displays the use of floating </h1>
+            <p>It is used to change the positioning of the html elements.</p>
+            <p>
+                <a href="https://htmlcolorcodes.com">
+                    This is a great site to see more colors.
+                </a>
+            </p>
+        </div>
+        <hr>
+
+        <!-- svg is the size of the canvas we draw on. -->
+        <div class="first_div">
+            <p>Any object floated left, will apear on the left of all non-floated stuff.</p>
+            <svg>
+                <rect id="rec1" width="100" height="100"/>
+                <circle id="circ1" r="50"  cx="200" cy="200"/>
+            </svg >
+        </div>
+        <div class="second_div">
+            <p>Any object floated to the right will apear on right of all non-floated stuff.</p>
+            <svg>
+                <!-- x-length, y-length, placement in the svg plane. -->>
+                <ellipse id="ell1" rx="50" ry="30" cx="100" cy="100"/>
+            </svg>
+        </div>
+        <p>This paragraph is not floated.</p>
+        <div class="clear-float">
+            <p>This paragraph is inside a div to be displayed below the floated objects.</p>
+        </div>
+    </body>
+</html>

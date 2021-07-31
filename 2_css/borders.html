@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>borders</title>
+        <style type="text/css">
+            body{
+                margin:0px;
+                padding:0px;
+                background-color: #E5E7E9;
+                font-family: monospace;
+                text-align: center;
+            }
+            h1{
+                text-align: center;
+                margin:0px;
+                padding:0px;
+            }
+            .square{
+                width: 120px;
+                height:120px;
+                margin:40px;
+                float:left;
+            }
+            #sq-red{
+                background-color: tomato;
+                border: 10px green solid;
+            }
+            #sq-blue{
+                background-color: navy;
+                border-style: double ridge solid dotted;
+                border-width: 15px;
+                border-color: lime blue black orange;
+            }
+            #sq-grey{
+                background-color: gray;
+                border-radius: 50%;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Borders in CSS.</h1>
+        <p>Take a look at the code for how id's and classes are used.</p>
+        <hr>
+
+        <div id="sq-red" class="square">
+            <p></p>
+        </div>
+        <div id="sq-blue" class="square">
+            <p style="color: white;">See how you can set each border side.</p>
+        </div>
+        <div id="sq-grey" class="square">
+            <p style="color: white;">The rounded retangle is created using a border radius.</p>
+        </div>
+    </body>
+</html>

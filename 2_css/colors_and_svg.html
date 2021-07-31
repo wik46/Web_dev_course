@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Note that fill is used to change the color of the rectangle. -->
+        <style type="text/css">
+            h1 {
+                font-family: monospace;
+                text-align: center;
+            }
+            p{
+                text-align: center;
+            }
+            svg{
+                width: 300px;
+                height: 300px;
+                border: solid black;
+            }
+            .head_background{
+                background-color: rgb(94, 94, 94);
+                margin:0mm;
+            }
+            #first_div{
+                background-color:lightgrey;
+            }
+            #second_div{
+                background-color: burlywood;
+            }
+
+            #rec1 {
+                fill:  #002771;
+            }
+            #circ1{
+                fill: #A04000;
+            }
+            #ell1{
+                fill:#1E8449;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <div class="head_background">
+            <h1>Using SVG to see different colors in CSS</h1>
+            <p>Svg is used to display graphics. It comes from xml.</p>
+            <p>
+                <a href="https://htmlcolorcodes.com">
+                    This is a great site to see more colors.
+                </a>
+            </p>
+        </div>
+        <hr>
+
+        <!-- svg is the size of the canvas we draw on. -->
+        <div id="first_div">
+            <svg>
+                <rect id="rec1" width="100" height="100"/>
+                <circle id="circ1" r="50"  cx="200" cy="200"/>
+            </svg >
+        </div>
+        <div id="second_div">
+            <svg>
+                <!-- x-length, y-length, placement in the svg plane. -->>
+                <ellipse id="ell1" rx="50" ry="30" cx="100" cy="100"/>
+            </svg>
+        </div>
+    </body>
+</html>

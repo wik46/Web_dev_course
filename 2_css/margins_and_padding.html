@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Note that fill is used to change the color of the rectangle. -->
+        <!-- The browser adds its own default margins and paddings. We can override that.-->
+        <style type="text/css">
+            body{
+                margin:0px;
+                padding:0px;   
+                font-family: monospace;
+            }
+            h1,h2 {
+                font-family: monospace;
+                text-align: center;
+                margin:0px;
+                padding:0px;
+            }
+            p{
+                text-align: center;
+                margin:0px;
+                padding:0px;
+            }
+
+            .head_background{
+                background-color: rgb(163, 163, 163);
+            }
+            .info_dif{
+                background-color: skyblue;
+                width: 250px;
+                height: 200px;
+                position: fixed;
+                left: 900px;
+                top: 200px;
+                padding: 10px;
+            }
+            .first_div{
+                background-color:lightgrey;
+                margin: 50px;
+                width: 150px;
+            }
+            .second_div{
+                font-family: monospace;
+                background-color: burlywood;
+                position: absolute;
+                margin: 100px 50px;
+                width: 250px;
+                height:200px;
+                left: 500px;
+
+            }
+
+            .third_div{
+                background-color: lime;
+                width: 150px;
+                height: 150px;
+                border: solid black;
+
+            }
+            .fourth_div{
+                background-color: mediumseagreen;
+                margin: 100px 150px 175px 200px;
+                border: solid black;
+                width: 150px;
+                height: 150px;
+            }
+            .padding1{
+                background-color: olive;
+                padding: 50px 20px;
+                width: 200px;
+                height:200px;
+            }
+            .no_padding{
+                background-color: olive;
+                width: 200px;
+                height:200px;
+            }
+        
+        </style>
+
+    </head>
+    <body>
+        <div class="head_background">
+            <h1>This HTML Margins and Borders.</h1>
+            <p>They are used to add spaced to our divs.</p>
+        </div>
+        <hr>
+
+        <h2>Margins</h2>
+        <!-- svg is the size of the canvas we draw on. -->
+        <div class="first_div">
+            <p>margin 50 px constant.</p>
+        </div>
+        <div class="second_div">
+            <p>This object is moved using an absolute positioning. That means that we
+                can place this object anywhere and the other objects don't take
+                it into consideration.
+            </p>
+        </div>
+        <div class="third_div">
+            <p>Margin 100px top and bottom, 50px left and right.
+            </p>
+        </div>
+        <div class="fourth_div">
+            <!-- This is only used to make the page long enough to scroll. -->
+            <p>This division is only used so that we can scroll down and
+                test the fixed positioning.
+            </p>
+        </div>
+        <hr>
+        <h2>Padding</h2>
+        <p>Very similar to margins. Just instead of a margin outside, we can have space
+            inside the div.
+        </p>
+        <h3>With padding.</h3>
+        <div class="padding1">
+        
+            <p>Note the space inside the div. Padding works very simliar to margins.
+                You can remove the padding from this div element and see the difference. You
+                can also add more padding to increase the distance of the text from the border.
+                <br>
+                Note that the padding adds to the width of the div.
+            </p>
+        </div>
+        <h3>No Padding</h3>
+        <div class="no_padding">
+            <p>This is a div class with all the same properties as the one above. 
+                The only difference is that this one does no contain padding.
+            </p>
+        </div>
+        <div class="info_dif">
+            <p>Note the following:</p>
+            <ul>
+                <li>body, h1, p, ... have default margins and padding that you can remove.</li>
+                <li><strong>Margin:</strong> the space around a div.</li>
+                <li><strong>Padding:</strong> a "margin" but inside the div.</li>
+            </ul>
+        </div>
+    </body>
+</html>
