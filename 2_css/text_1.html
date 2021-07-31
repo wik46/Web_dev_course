@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>borders</title>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Indie+Flower&family=Palette+Mosaic&display=swap" rel="stylesheet">
+        <style type="text/css">
+            body{
+                margin:0px;
+                padding:0px;
+                background-color: #E5E7E9;
+                font-family: monospace;
+                text-align: center;
+            }
+            h1{
+                text-align: center;
+                margin:0px;
+                padding:0px;
+            }
+            .font_fam{
+                background-color: lightgrey;  
+                width: 90%;
+                font-family: 'Palette Mosaic', cursive;
+                margin: 45px;
+                
+            }
+            .font_fam2{
+                background-color: lightgrey; 
+                width: 90%;
+                margin: 45px;
+            }
+            .bold{
+                font-weight: bolder;
+            }
+            .italic{
+                font-style: italic;
+            }
+            .underline{
+                text-decoration: underline;
+            }
+            a{
+                text-decoration: none;
+            }
+            a:hover{
+                text-decoration: underline;
+                color: green;
+            }
+            .right{
+                text-align: right;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Fonts</h1>
+        <p>Some examples of formatted text.</p>
+        <hr>
+        <div class="font_fam">
+            <p >Testing a first example of fonts.</p>
+        </div>
+        <div class="font_fam">
+            <h2 class="underline">Using google fonts from imported css.</h2>
+            <table>
+                <tr>
+                    <a href="https://fonts.google.com">Open Google Fonts webpage.</a>
+                </tr>
+                <tr>
+                    <p style="font-family: 'Bebas Neue', cursive;"> This is an example of ... used.</p>
+                </tr>
+                <tr>
+                    <p style="font-family: 'Indie Flower', cursive;">Here is another example of a google font.</p>
+                </tr>
+            </table>
+        </div>
+        <div class="font_fam2">
+            <h2 class="underline">Use internal css instead of inline css.</h2>
+            <p class="bold">Use classes to set bold text</p>
+            <p class="italic">Some normal italic text.</p>
+            <p class="italic">Use classes to set italic text. 
+                <span class="bold">While still inside an italic area, we can also make it bold
+                using a "span" tag.
+                </span>
+            </p>
+            <a href="https://www.w3schools.com/css/css_text.asp"> This is a non-underlined link with hover added.</a>
+
+        </div>
+        <div class="font_fam2">
+            <h2 class="underline">Text Alliging</h2>
+            <p class="right">Text allignment applies to child relative to parent.</p>
+        </div>
+        
+    </body>
+</html>
