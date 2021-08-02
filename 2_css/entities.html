@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>borders</title>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Indie+Flower&family=Palette+Mosaic&display=swap" rel="stylesheet">
+        <style type="text/css">
+            body{
+                margin:0px;
+                padding:0px;
+                background-color: #E5E7E9;
+                font-family: monospace;
+                text-align: center;
+            }
+            table, tr, td, thead, tbody{
+                margin:0px;
+                padding:0px;
+                border: 1px solid black;
+                
+            }
+            /*#table{
+                border: 1px solid black
+            }*/
+            #mytable{
+                width:80%;
+                height: 80%;
+                text-align: center;
+                /* This centres the table in the page. */
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Entities</h1>
+        <p>They always start with '&#' and end with ';'.</p>
+        <hr>
+        <div id="table">
+            <table id="mytable">
+                <thead>
+                    <h3>Examples of Entities with their Codes</h3>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Emoji</td>
+                        <td>Text Used</td>
+                        <td>Name</td>
+                    </tr>
+                    <tr>
+                        <td> &#x2615; </td>
+                        <td><p> &# + X2615 + ; </p></td><!-- X is because hex number-->
+                        <td><p>Coffe Mug</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>&#X1F37A;</p></td>
+                        <td>&# + X1F37A + ;</td>
+                        <td><p>Beer Mug</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>&#X1F3BC;</p></td>
+                        <td>&# + X1F3BC + ;</td>
+                        <td><p>Treble clef</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>&#X1F3CB;</p></td>
+                        <td>&# + X1F3CB + ;</td>
+                        <td><p>Snatch</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
