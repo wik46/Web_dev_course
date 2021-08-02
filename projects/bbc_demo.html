@@ -4,9 +4,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
         <style type="text/css">
 
-        body, div{
+        body, div, ul, p{
             margin:0px;
             padding:0px;
+            font-family: 'Nanum Gothic', sans-serif;
         }
         h2{
             float:left;
@@ -15,81 +16,168 @@
             padding:0px;
         }
         .top_nav_arrea{
-            margin:0px;
-            padding:0px;
-            background-color: lightgrey;
-            height: 70px;
+            background-color: #FFFFFF;
+            height: 40px;
+            font-size: 80%;
+        }
+        #top_img_and_nav{
+            padding-left: 120px;
+            position: relative;
+            left: 20px;
         }
         .light_red_nav{
             background-color: #BB1919;
             height: 100px;
+            width:100%;
+            font-size: 80%;
         }
-        #news_h2{
-            position: relative;
-            left:120px;
-            font-size:  240%;
-            font-family: 'Nanum Gothic', sans-serif;
-        }
-        .nav_list{
-            
+        #nav_list{
             list-style-type: none;
             position: relative;
             top: 60px;
+            left:-200px;
         }
-        li{
+
+        #nav_list2{
+            list-style-type: none;
+            color: black;
+            position: relative;
+            top:5px;
+        }
+        .white{
             color: white;
             float: left;
-            padding:10px;
+            padding:5px;
             border-right: 0.5px solid rgb(255, 206, 206);
         }
-        .rec{
-            background-color: rgba(0, 0, 0, 0.856) ;
-            width:20px;
-            height:20px;
-            float:left;
-            margin-left:10px;
-            color:lightgray;
+        .black{ 
+            float: left;
+            padding:5px;
+            border-right: 0.5px solid black;
+        }
+        #news_h2{
+            font-size:  300%;
+            position: relative;
             font-family: 'Nanum Gothic', sans-serif;
+            float:left;
+            top:10px;
+            left: -85px;
+    
+        }
+        #bbc_logo{
+            width: 85px;
+            float:left;
+            position: relative;
+            top: -5px;
+        }
+        #sign_in{
+            float:left;
+            padding-right: 50px;
+            
+        }
+        #search_right{
+            float: right;
+            padding: 10px 70px 10px 10px;
+        }
+        #div_with_img{
+            border: 1px solid black;
+            width:620px;
+            height:900px;
+            float:left;
+            position: relative;
+            left: 150px;
+        }
+        #main_story_header{
+            font-family:'Times New Roman', Times, serif;
+            font-size: 250%;
+            color:rgb(80, 79, 79);
+        }
+        #side_nav_bar{
+            border: 1px solid black;
+            width:320px;
+            height:900px;
+            float:right;
+            position:relative;
+            left: -150px;
+        }
+        #days_ago{
+            font-size: 50%; 
+            color: gray; 
+            padding:5px ;
+        }
+        #sq1{
+            width:10px;
+            height:10px;
+            border: 1px solid red;
+        }
+        #sq2{
+            width:130px;
+            height:30px;
+            border: 1px solid red;
+            font-size: 70%;
+            padding: 10px;
+            font-weight: bold;
         }
         </style>
     </head>
     <body>
         <div class="top_nav_arrea">
-            <div class="rec"><span>B</span></div>
-            <div class="rec"><span>B</span></div>
-            <div class="rec"><span>C</span></div>
+            
+            <div id="top_img_and_nav">
+                <img id="bbc_logo"src="images/BBC-logo.png" style="padding-right: 20px;">
+                <ul id="nav_list2">
+                    <li class="black" style="border-left: 0.5px solid black;">
+                        <div id="sign_in">Sign in</div>
+                    </li>
+                    <li class="black">News</li>
+                    <li class="black">Sport</li>
+                    <li class="black">Reel</li>
+                    <li class="black">Worklife</li>
+                    <li class="black">Travel</li>
+                    <li class="black">Future</li>
+                    <li class="black" style="padding-right: 70px;">More</li>
+                </ul>
+            </div>
+            <div id="search_right"><input type="text" placeholder="Search"></div>
+                
         </div>
         <div class="light_red_nav">
             <h2 id="news_h2">NEWS</h2>
             <p>
-                <ul class="nav_list">
-                    <li>Home</li>
-                    <li>Coronavirus</li>
-                    <li>Video</li>
-                    <li>World</li>
-                    <li>US & Canada</li>
-                    <li>UK</li>
-                    <li>Business</li>
-                    <li>Tech</li>
-                    <li>Science</li>
-                    <li>Health</li>
-                    <li>Education</li>
-                    <li>Entertainment & Arts</li>
-                    <li>Video & Audio</li>
-                    <li style="border-right: none;">More</li>
+                <ul id="nav_list">
+                    <li class="white">Home</li>
+                    <li class="white">Coronavirus</li>
+                    <li class="white">Video</li>
+                    <li class="white">World</li>
+                    <li class="white">US & Canada</li>
+                    <li class="white">UK</li>
+                    <li class="white">Business</li>
+                    <li class="white">Tech</li>
+                    <li class="white">Science</li>
+                    <li class="white">Health</li>
+                    <li class="white">Education</li>
+                    <li class="white">Entertainment & Arts</li>
+                    <li class="white">Video & Audio</li>
+                    <li class="white" style="border-right: none;">More</li>
                 </ul>
             </p>
         </div>
-        <hr>
-        <div>
-
+        <div style="position: relative; left:150px;">
+            <h3 >Tech</h3>
         </div>
-        <hr>
-        <div>
-
+        
+        <div id="div_with_img">
+            
+            <h3 id="main_story_header">Facebook, Google expect jabs for office return</h3>
+            <p id="days_ago">2 days ago</p>
+            <div id="sq1"></div>
+            <div id="sq2"><p>Coronavirus pandemic</p></div>
+            <hr>
+            <img src="images/twitter.jpg" width="100%">
         </div>
-        <div>
-
+        
+        <div id="side_nav_bar">
+            <h3>Navbar on side.</h3>
         </div>
     </body>
 
