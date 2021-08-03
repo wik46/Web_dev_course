@@ -7,7 +7,8 @@
   <meta http-equiv="cache-control" content="no-cache" />
   <meta http-equiv="expires" content="0" />
   <meta http-equiv="pragma" content="no-cache" />
-  <title>This site is brand new</title>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <title>Home</title>
   <style>
 
 
@@ -50,8 +51,8 @@
   </style>
 </head>
 <body>
-  <h1>This Site is Brand New</h1>
+  <h1>This is the main page of my site.</h1>
   <h3>Please check back again soon for more</h3>
-  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  
 </body>
 </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Intro to JavaScript.</title>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <style type="text/css">
+            body, h1, p{
+                margin:0px;
+                padding:0px;
+                font-family: 'Nanum Gothic', sans-serif;
+                text-align: center;
+                background-color: #F5F5F7 ;
+            }
+            div.block{
+                border: 1px solid black;
+                width: 80%;
+                height: 250px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            div.small_box{
+                border: 1px solid black;
+                width: 50%;
+                height:25%;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: dimgray;
+            }
+            #output1{
+                background-color: dimgray;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>First Example on Variables</h1>
+        <hr>
+        <!-- **************************************************************** -->
+        <div class="block">  
+                <h3>Using Basic Variables</h3> 
+                <br>
+                <p><input type="text" id="text_input1" placeholder="new text here"></p>
+                
+                <p><input type="button" id="submit_b" value="submit"></p>
+                <br>
+                <div class="small_box">
+                    <p id="output1">You will change this text when you enter new text in the box and submit it.</p>
+                </div>
+        </div>
+        <br>
+        <!-- **************************************************************** -->
+        <div class="block">
+            <h3>Arrays in JavaScript</h3>
+            <br>
+            <p>This is where we start tomorrow!</p>
+        </div>
+         <!-- **************************************************************** -->
+        <script type="text/JavaScript">
+            document.getElementById('submit_b').onclick = function(){
+                // Saving the user input inside the variable.
+                var user_input1 = document.getElementById('text_input1').value;
+                document.getElementById('output1').innerHTML = user_input1;
+            }
+
+        </script>
+    </body>
+</html>

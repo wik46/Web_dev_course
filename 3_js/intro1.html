@@ -19,6 +19,9 @@
                 margin-left: auto;
                 margin-right: auto;
             }
+            #inner_div{
+                border: 1px solid black;
+            }
             
         </style>
     </head>
@@ -53,13 +56,22 @@
         <br>
         <div class="block" id="b3">
             <h3>Example 3</h3>
-            <p>This is the original text inside the html.</p>
+            <div id="inner_div">
+                <p id="b3_p">This is the original text inside the html.</p>
+            </div>
+            <button id="b3_button">Click here to change text.</button>
         </div>
 
         <script type="text/JavaScript">
             // This function takes all the inner html inside the element and replaces it.
             document.getElementById('b2_p').innerHTML = "I have been changed from Js.";
-            //document.getElementById('b2').
+            // This is a button use to change the text when click.
+            // This is exactly the same as putting onclick inside the tag.
+            // -- We are defining the function to be executed on a click.
+            document.getElementById('b3_button').onclick = function(){
+                document.getElementById('b3_p').innerHTML = "Now it is changed."
+                alert("Remember to look at the console if errors occur.")
+            }
         </script>
     </body>
 </html>

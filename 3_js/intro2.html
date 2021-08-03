@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Intro to JavaScript.</title>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <style type="text/css">
+            body, h1, p{
+                margin:0px;
+                padding:0px;
+                font-family: 'Nanum Gothic', sans-serif;
+                text-align: center;
+                background-color: #F5F5F7 ;
+            }
+
+            div.block{
+                border: 1px solid black;
+                width: 80%;
+                height: 250px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            div.small_block{
+                border: 1px solid black;
+                width: 50%;
+                height: 50px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            table, tr, td{
+                border: 1px solid black;
+                margin-left:auto;
+                margin-right: auto;
+            }
+            #inner_div{
+                border: 1px solid black;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>2. Intro: Adding elements.</h1>
+        <p>This page briefly shows how to work some features of working with 'document.'</p>
+        <hr>
+        <div class="block" id="b1">
+         <table>
+             <thead >
+                 <h3>Some examples of changing content with Js.</h3>
+             </thead>
+             <tr>
+                <td><button id="button_1_1">Click me example 1.</button></td>
+                <td><p>Text before button click.</p></td>
+                <td><p id="p1_1"></p></td>
+             </tr>
+             <tr>
+                <td><button id="button_1_2">Click me example 2.</button></td>
+                <td><p>Text before button click.</p></td>
+                <td><div id="d1_2"></div></td>
+             </tr>
+         </table>
+         <button id="block1_reset">Reset</button>
+        </div>
+        <!-- ******************************* -->
+        <br>
+        <div class="block" id="b2">
+            <h3>Changing Styles with Js</h3>
+            <p>Note when to use background-color and backgroundColor.</p>
+            <hr>
+            <div class="small_block">
+                <p id="p2_1">I am some text that you can use to see changes on.</p>
+            </div>
+            <br>
+            <div class="small_block"> 
+                <button id="button_2_1">Change color</button>
+                <button id="button_2_2">Change font</button>
+                <button id="button_2_3">Change font-size</button>
+                <button id="button_2_4">Hide paragraph</button>
+                <button id="button_2_5">Reset changes</button>
+            </div>
+           
+        </div>
+        <br>
+        <div class="block" id="b3">
+ 
+        </div>
+        
+        <script type="text/JavaScript">
+            // Inside block 1: Button 1
+            document.getElementById('button_1_1').onclick = function() {
+                document.getElementById('p1_1').innerHTML = "This is new text!!!";
+            };
+            // Inside block 1: Button 2
+            document.getElementById('button_1_2').onclick = function(){
+                //document.getElementById('d1_2').innerHTML = "Work?";    
+                //document.body.style.backgroundColor = "red";   
+                document.getElementById('d1_2').style.width = "40px";
+                document.getElementById('d1_2').style.height = "10px";
+                document.getElementById('d1_2').style.backgroundColor = "red"; 
+            };
+            // Inside block 1: Reset.
+            document.getElementById('block1_reset').onclick = function(){
+                document.getElementById('p1_1').innerHTML = "";
+                document.getElementById('d1_2').innerHTML = "";
+                document.getElementById('d1_2').style.width = "0px";
+                document.getElementById('d1_2').style.height = "0px";
+                document.getElementById('d1_2').style.backgroundColor = "#F5F5F7";
+            };
+            // Inside block 2: Buttons 1 - 5
+            // 1. Change the color on a click.
+            document.getElementById('button_2_1').onclick = function(){
+                document.getElementById('p2_1').style.color = "blue";
+            };
+            // 2. Change the font of the text.
+            document.getElementById('button_2_2').onclick = function(){
+                document.getElementById('p2_1').style.fontFamily = "monospace";
+            };
+            // 3. Change the size of the text.
+            document.getElementById('button_2_3').onclick = function(){
+                var x = prompt("Enter the font-size");
+                document.getElementById('p2_1').style.fontSize = "120%";
+            };
+            // 4. Hide the text.
+            document.getElementById('button_2_4').onclick = function(){
+                document.getElementById('p2_1').style.display = "none";
+            };
+            // 5. Reset any changes.
+            document.getElementById('button_2_5').onclick = function(){
+                alert("Just refresh the page");
+            };
+        </script>
+    </body>
+</html>
