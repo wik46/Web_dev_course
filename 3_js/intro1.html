@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Intro to JavaScript.</title>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <style type="text/css">
+            body, h1, p{
+                margin:0px;
+                padding:0px;
+                font-family: 'Nanum Gothic', sans-serif;
+                text-align: center;
+                background-color: #F5F5F7 ;
+            }
+
+            div.block{
+                border: 1px solid black;
+                width: 80%;
+                height: 200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>1. Intro: Accessing Elements.</h1>
+        <p>This page briefly shows how to work some features of working with 'document.'</p>
+        <hr>
+        <div class="block" id="b1">
+            <h3>The DOM and Tutorials: </h3>
+            <p>When HTML is loaded into a browser it becomes a dom object. 
+                The document is the root object.
+                
+            </p>
+            <h3>Helpful Tutorials</h3>
+                <button>
+                    <a href="https://www.youtube.com/watch?v=_GxpmQ54aqg" target="_blank">
+                    Intro to the Document Object Model.
+                    </a>
+                </button>
+                <button>
+                    <a href="https://www.youtube.com/watch?v=y17RuWkWdn8" target="_blank">
+                        14 Dom manipulations.
+                    </a>
+                </button>
+
+        </div>
+        <br>
+        <div class="block" id="b2">
+            <h3>Example 2</h3>
+            <p id="b2_p">This is the original text inside the html.</p>
+        </div>
+        <br>
+        <div class="block" id="b3">
+            <h3>Example 3</h3>
+            <p>This is the original text inside the html.</p>
+        </div>
+
+        <script type="text/JavaScript">
+            // This function takes all the inner html inside the element and replaces it.
+            document.getElementById('b2_p').innerHTML = "I have been changed from Js.";
+            //document.getElementById('b2').
+        </script>
+    </body>
+</html>
