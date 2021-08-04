@@ -70,7 +70,7 @@
         <input type="text" placeholder="value for y" id="y"><br>
         <input type="button" value="submit" id="submit_b"><br>
         <br>
-        <div class="small_box">
+        <div class="small_box" id="small_box_id">
             <h4 id="disp_ans1">Answer will be displayed here</h4>
 
         </div>
@@ -92,13 +92,14 @@
             var y = document.getElementById('y').value;
             var x1, y1;
             console.log("The value/ of x is " + x);
-            console.log("Type of x: " + isNaN(x)); // isNaN() returns true if x is not a valid number
+            console.log("Is x a string: " + isNaN(x)); // isNaN() returns true if x is not a valid number
             console.log("The value of y is " + y);
-            console.log("The type of y: " + isNaN(y));
+            console.log("Is y a string: " + isNaN(y));
             // If one of the number is not a valid number we will prompt the user to re-enter.
             if(isNaN(x) || isNaN(y)){
                 alert("'" + x + "' or '" + y + "' is not a valid number.");
                 document.getElementById('disp_ans1').innerHTML = "Invalid input.";
+                document.getElementById('small_box_id').style.backgroundColor = "dimgray"; 
                 return;
             }else{
                 x1 = parseInt(x);
@@ -109,11 +110,14 @@
 
             // Now for the program logic.
             if(ans > 0){
-                document.getElementById('disp_ans1').innerHTML = "The sum is positive."; 
+                document.getElementById('disp_ans1').innerHTML = "The sum is positive.";
+                document.getElementById('small_box_id').style.backgroundColor = "green"; 
             }else if(ans < 0){
                 document.getElementById('disp_ans1').innerHTML = "The sum is negative.";
+                document.getElementById('small_box_id').style.backgroundColor = "red";
             }else{
                 document.getElementById('disp_ans1').innerHTML = "The sum is 0.";
+                document.getElementById('small_box_id').style.backgroundColor = "#DAA520";
             }
         }
 

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Loops</title>
+    </head>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body, h1, p, ul{
+            margin:0px;
+            padding:0px;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+            background-color: #F5F5F7 ;
+        }
+        table{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        tr, td{
+            border: 1px solid black;
+            
+        }
+        input{
+            width: 70%;
+        }
+        .in_box{
+            font-size: 70%;
+            text-align: left;
+            list-style: none;
+            margin:5px;
+        }
+
+        div.block{
+            border: 1px solid black;
+            width: 80%;
+            height: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        div.small_box{
+            border: 1px solid black;
+            width: 50%;
+            height:25%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: dimgray;
+        }
+        div.small_side_box{
+            border: 1px solid black;
+            width: 90%;
+            height: 35%;
+            position: relative;
+            margin: auto;
+        }
+        #output1{
+            background-color: dimgray;
+            color: white;
+        }
+        #console_rem_button{
+            position: relative;
+            top: -50px;
+            left:-10px;
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Loops in JavaScript</h1>
+    <hr>
+    <!-- **************************************************************** -->
+    <div class="block">  
+        <h3>For-loops.</h3>
+        <p>Type in the number of random number that the program should produce. (limit 40)
+        </p>
+        <hr>
+        <div class="small_side_box" id="sbox1">
+            <br>
+            <p><input type="text" placeholder="amount of random numbers" id="item1"></p>
+            <p><input type="text" placeholder="smallest value" id="item2"></p>
+            <p><input type="text" placeholder="largest value" id="item3"></p>
+            <p><input type="button" value="display input" id="submit_b"></p>
+            <p><input type="button" value="reset" id="reset_b"></p>
+
+
+        </div>
+        <br>
+        <div class="small_side_box">
+            <table>
+                <thead>
+                    Random Numbers Generated.
+                </thead>
+                <tr id="r1"></tr>
+                <tr id="r2"></tr>
+                <tr id="r3"></tr>
+                <tr id="r4"></tr>
+            </table>
+        </div>
+ 
+    </div>
+    <br>
+    <!-- **************************************************************** -->
+    <div class="block">           
+        <h3>While-loops</h3>
+        <p>This is used when we want to stop iterating based on a set of conditions.</p>
+        <hr>
+
+    </div>
+    <br>
+    <div class="block">
+
+    </div>
+     <!-- **************************************************************** -->
+    <script type="text/JavaScript">
+        // This function is used to remove any inner html from a given element.
+        function removeInnerHTML(elem_id){
+            document.getElementById(elem_id).innerHTML = "";
+        }
+        // This function runs when the button is clicked.
+        document.getElementById('submit_b').onclick = function(){
+            removeInnerHTML('r1');
+            removeInnerHTML('r2');
+            removeInnerHTML('r3');
+            // variables used.
+            var count = document.getElementById('item1').value;
+            var min = document.getElementById('item2').value;
+            var max = document.getElementById('item3').value;
+            
+            //
+            const max_amount_num = 40;
+            // Upper limit for user input.
+            const max_max = 100000000;
+            if ( isNaN(count) || count < 1 || count > max_amount_num){
+                alert("You cannot select " + count + " many numbers the max is " + max_amount_num);
+                return;
+            // Ensuring that we have valid numbers.
+            } else if(isNaN(min) || isNaN(max) || max > max_max){
+                alert("You must enter valid integers." + max_max + " is the upper limit.");
+                return;
+            }
+            // From here on we assume user have inputted valid input.
+            var count1 = parseInt(count);
+            var min1 = parseInt(min);
+            var max1 = parseInt(max);
+
+            alert("Number chosen " + count);
+            alert("min and max is: " + min + ", " + max);
+            // Very important to log information to the browser console.
+            console.log("Number chosen " + count);
+            console.log("max and min is: " + max + ", " + min);
+
+            // Here we generate the random numbers and store them in an array.
+            var rand_nums = new Array();
+            for (var i = 0; i < count1; i++){
+                // Math is a built in object. This is where we calculate the random numbers
+                // within the desired range.
+                rand_nums[i] = Math.floor(Math.random()*(max1 - min1 + 1 ) + min1 );
+                //alert(rand_nums[i]);
+            }
+            // In this part we create <td> elements that will be cells in our rows of
+            // the table.
+            for (var i = 0; i < rand_nums.length; i++){
+                console.log(rand_nums[i]);
+                if (i < 10){
+                    var td = document.createElement('td');
+                    td.innerHTML = rand_nums[i];
+                    document.getElementById('r1').appendChild(td);
+                } else if (i < 20){
+                    var td = document.createElement('td');
+                    td.innerHTML = rand_nums[i];
+                    document.getElementById('r2').appendChild(td);
+                } else if (i < 30){
+                    var td = document.createElement('td');
+                    td.innerHTML = rand_nums[i];
+                    document.getElementById('r3').appendChild(td);
+                } else if (i < 40){
+                    var td = document.createElement('td');
+                    td.innerHTML = rand_nums[i];
+                    document.getElementById('r4').appendChild(td);
+                } else {
+                    alert("[error]: the number of elements in the array are too much.")
+                }
+            }
+        }
+        // This function get called when the reset button is clicked.
+        document.getElementById('reset_b').onclick = function(){
+            removeInnerHTML('r1');
+            removeInnerHTML('r2');
+            removeInnerHTML('r3');
+            removeInnerHTML('r4');
+        }
+    </script>
+</body>
+</html>
