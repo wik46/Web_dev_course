@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conditionals</title>
+    </head>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body, h1, p, ul{
+            margin:0px;
+            padding:0px;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+            background-color: #F5F5F7 ;
+        }
+        .in_box{
+            font-size: 70%;
+            text-align: left;
+            list-style: none;
+            margin:5px;
+        }
+
+        div.block{
+            border: 1px solid black;
+            width: 80%;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        div.small_box{
+            border: 1px solid black;
+            width: 50%;
+            height:25%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: dimgray;
+        }
+        div.small_side_box{
+            border: 1px solid black;
+            width: 20%;
+            height: 70%;
+            position: relative;
+            top: -170px;
+            margin: 5px;
+
+        }
+        #output1{
+            background-color: dimgray;
+            color: white;
+        }
+        #console_rem_button{
+            position: relative;
+            top: -50px;
+            left:-10px;
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conditionals in JavaScript</h1>
+    <hr>
+    <!-- **************************************************************** -->
+    <div class="block">  
+        <h3>Test if the sum is positive.</h3>
+        <p>Enter two numbers and the the application will tell you
+            if the sum is positive, negative, or zero.
+        </p>
+        <hr>
+        <br>
+        <input type="text" placeholder="value for x" id="x"><br>
+        <input type="text" placeholder="value for y" id="y"><br>
+        <input type="button" value="submit" id="submit_b"><br>
+        <br>
+        <div class="small_box">
+            <h4 id="disp_ans1">Answer will be displayed here</h4>
+
+        </div>
+    </div>
+    <br>
+    <!-- **************************************************************** -->
+    <div class="block">           
+
+    </div>
+    <br>
+    <div class="block">
+
+    </div>
+     <!-- **************************************************************** -->
+    <script type="text/JavaScript">
+        document.getElementById('submit_b').onclick = function(){
+            var ans;
+            var x = document.getElementById('x').value;
+            var y = document.getElementById('y').value;
+            var x1, y1;
+            console.log("The value/ of x is " + x);
+            console.log("Type of x: " + isNaN(x)); // isNaN() returns true if x is not a valid number
+            console.log("The value of y is " + y);
+            console.log("The type of y: " + isNaN(y));
+            // If one of the number is not a valid number we will prompt the user to re-enter.
+            if(isNaN(x) || isNaN(y)){
+                alert("'" + x + "' or '" + y + "' is not a valid number.");
+                document.getElementById('disp_ans1').innerHTML = "Invalid input.";
+                return;
+            }else{
+                x1 = parseInt(x);
+                y1 = parseInt(y);
+                ans = x1 + y1;
+                alert("The sum is: " + ans);
+            };
+
+            // Now for the program logic.
+            if(ans > 0){
+                document.getElementById('disp_ans1').innerHTML = "The sum is positive."; 
+            }else if(ans < 0){
+                document.getElementById('disp_ans1').innerHTML = "The sum is negative.";
+            }else{
+                document.getElementById('disp_ans1').innerHTML = "The sum is 0.";
+            }
+        }
+
+    </script>
+</body>
+</html>
