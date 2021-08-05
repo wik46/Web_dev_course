@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Functions</title>
+    </head>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body, h1, p, ul{
+            margin:0px;
+            padding:0px;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+            background-color: #F5F5F7 ;
+        }
+        table{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        tr, td{
+            border: 1px solid black;
+            
+        }
+        .wide_input{
+            width: 70%;
+        }
+
+        .in_box{
+            font-size: 70%;
+            text-align: left;
+            list-style: none;
+            margin:5px;
+        }
+
+        div.block{
+            border: 1px solid black;
+            width: 80%;
+            height: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        div.small_box{
+            border: 1px solid black;
+            width: 50%;
+            height:25%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: dimgray;
+        }
+        div.small_side_box{
+            border: 1px solid black;
+            width: 90%;
+            height: 35%;
+            position: relative;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Functions in JavaScript</h1>
+    <hr>
+    <!-- **************************************************************** -->
+    <!-- Functions -->
+    <!-- **************************************************************** -->
+
+    <div class="block">  
+        <h3>Example 1</h3>
+        <p>This is a sample calculator that can sum, multiply, subtract, and devide numbers.
+        </p>
+        <hr>
+        <p><input type="number" placeholder="enter a number" id="num1"></p>
+        <p><input type="number" placeholder="enter a number" id="num2"></p>
+        
+
+        <p><input class="wide_input" type="button" value="refresh" id="refresh"></p>
+        <p>
+            <input type="button" value="sum" id="sum_button">
+            <input type="button" value="multiply" id="mul_button">
+            <input type="button" value="subtract" id="sub_button">
+            <input type="button" value="devide" id="div_button">
+        </p>
+        <h3>Results</h3>
+        <div id="results"></div>
+    </div>
+    <br>
+     <!-- **************************************************************** -->
+    <script type="text/JavaScript">
+        var ans = 0;
+        var x = document.getElementById('num1').value;
+        var y = document.getElementById('num2').value;
+        if (isNaN(x) || isNaN(y)){
+            alert("Please enter valid integers.");
+
+        }
+
+        // Add the results.
+        function add_to_div(div_id, val){
+            var current = document.getElementById(div_id).innerHTML;
+            document.getElementById(div_id).innerHTML = current + "<p>" + val + "</p>";
+        }
+        // Sum Button. 
+        document.getElementById('sum_button').onclick = function(){
+            // Adding the result to the page.
+            var x = document.getElementById('num1').value;
+            var y = document.getElementById('num2').value;
+            add_to_div('results', parseInt(x)+parseInt(y));
+        }
+        // Multiply Button.
+        document.getElementById('mul_button').onclick = function(){
+            // Adding the result to the page.
+            var x = document.getElementById('num1').value;
+            var y = document.getElementById('num2').value;
+            add_to_div('results', x * y);
+        }
+        // Subtract Button.
+        document.getElementById('sub_button').onclick = function(){
+            // Adding the result to the page.
+            var x = document.getElementById('num1').value;
+            var y = document.getElementById('num2').value;
+            add_to_div('results', x - y);
+        }
+        // Divide Button.
+        document.getElementById('div_button').onclick = function(){
+            var x = document.getElementById('num1').value;
+            var y = document.getElementById('num2').value;
+            
+            if (y != 0){
+                // Adding the result to the page.
+                add_to_div('results', x / y);
+            }else{
+                alert("Division by " + y + " is undefined.");
+                // Adding the result to the page.
+                add_to_div('results', "undefined");
+            }
+        }
+        // Remove answers
+        document.getElementById('refresh').onclick = function(){
+            document.getElementById('results').innerHTML = "";
+        }
+
+    </script>
+</body>
+</html>
