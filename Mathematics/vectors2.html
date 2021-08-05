@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vectors</title>
+    </head>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script src="js/vector_and_particle.js"></script>
+    <script src="js/drawing.js"></script>
+    <style type="text/css">
+        body, h1, p, ul{
+            margin:0px;
+            padding:0px;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+            background-color: #F5F5F7 ;
+        }
+
+        div.block{
+            border: 1px solid black;
+            width: 80%;
+            height: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .first_canvas{
+            border: 1px solid black;
+            background-color: black;
+            width: 80%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vectors</h1>
+    <hr>
+    <!-- **************************************************************** -->
+    <!-- Functions -->
+    <!-- **************************************************************** -->
+
+    <div class="block">  
+        <h3>Vectors</h3>
+        <p>This is a simple graph of a sine function.</p>
+        <hr>
+        <canvas class="first_canvas" id="can1">
+        </canvas>
+
+    </div>
+    <br>
+     <!-- **************************************************************** -->
+    <script type="text/JavaScript">
+
+
+
+        // When the window opens.
+        window.onload = function(){
+            var can1 = document.getElementById('can1'),
+                // this is the object we graph all the graphics on.
+                context = can1.getContext("2d"),
+                width = can1.width,
+                height = can1.height;
+            // Filling the the 10x10 area white.
+            context.fillStyle = "#FFFFFF";    
+            
+            // Draw co-ordinate axis.
+            draw_coordinate_axis(context, width, height ,"#FFFFFF");
+
+            // Creating a Mathematical Point on the grid.
+            // Input: position x, position y, speed, direction in radians.
+            var p1 = point.create(0,0,5,1);
+
+            // Start drawing.
+            update();
+
+            // =======================================================
+            // function name: update()
+            // Description: This function is used to make points move.
+            // Inspiraation: Coding Math YouTube channel.
+            // Link: https://www.youtube.com/user/codingmath
+            // Last modified: Aug 5, 2021
+            // =======================================================
+            function update(){
+                // Start of animation.
+                // 1. Clear the previous frame.
+                context.clearRect(0, 0, width, height);
+                draw_coordinate_axis(context, width, height ,"#FFFFFF");
+                // Start.
+                context.beginPath();
+                // Input: centre (x,y), radius , begin angle, end angle.
+                const radius = 1;
+                context.arc(p1.position.getX(), p1.position.getY(), radius, 0, Math.PI * 2, false);
+                context.fill();
+
+                //updating the point's position
+                p1.update();
+                console.log(p1.position.getX());
+
+
+                // End of animation.
+                requestAnimationFrame(update);
+            }
+        };
+
+    </script>
+</body>
+</html>
