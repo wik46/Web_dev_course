@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Vectors</title>
+        <title>Circular Motion</title>
     </head>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <script src="js/vector_and_particle.js"></script>
@@ -25,21 +25,21 @@
         .first_canvas{
             border: 1px solid black;
             background-color: black;
-            width: 80%;
-            height: 400px;
+            width: 90%;
+            height: 80%;
         }
     </style>
 </head>
 <body>
-    <h1>Vectors</h1>
+    <h1>Circular Motion</h1>
     <hr>
     <!-- **************************************************************** -->
     <!-- Functions -->
     <!-- **************************************************************** -->
 
     <div class="block">  
-        <h3>Vectors</h3>
-        <p>This is a simple graph of a sine function.</p>
+        <h3>Circular Motion</h3>
+        <p>The movements of these points are governed by sine and cosine functions.</p>
         <hr>
         <canvas class="first_canvas" id="can1">
         </canvas>
@@ -47,10 +47,15 @@
     </div>
     <br>
      <!-- **************************************************************** -->
+     <div class="block">  
+        <h3>Circular Motion Results</h3>
+        <p>This is al the real time values while the points are moving.</p>
+        <hr>
+        <canvas class="first_canvas" id="can2">
+        </canvas>
+
+    </div>
     <script type="text/JavaScript">
-
-
-
         // When the window opens.
         window.onload = function(){
             var can1 = document.getElementById('can1'),
@@ -60,45 +65,55 @@
                 height = can1.height;
             // Filling the the 10x10 area white.
             context.fillStyle = "#FFFFFF";    
-            
             // Draw co-ordinate axis.
             draw_coordinate_axis(context, width, height ,"#FFFFFF");
 
-            // Creating a Mathematical Point on the grid.
-            // Input: position x, position y, speed, direction in radians.
-            var p1 = point.create(width/1.5 , height/2, 0.0000001, 0);
 
+            var centre_x = width/2,
+                centre_y = height/2,
+                offset_x = 50,
+                offset_y = 50,
+                speed = 0.05,
+                angle = 0;
+            var x_pos = centre_x + 50, 
+                y_pos = centre_y;
             // Start drawing.
-            update();
+            //update();
 
+            
+            context.beginPath();
+            
+            // This set constants for the point.
+            const radius = 1;
+            const start_angle = 0, end_angle = Math.PI * 2;
+            // Start of Circle Path
+            update_circ_motion();
             // =======================================================
-            // function name: update()
+            // function name: update_circ_motion()
             // Description: This function is used to make points move.
             // Inspiraation: Coding Math YouTube channel.
             // Link: https://www.youtube.com/user/codingmath
             // Last modified: Aug 5, 2021
             // =======================================================
-            function update(){
-                // Start of animation.
-                // 1. Clear the previous frame.
-                context.clearRect(0, 0, width, height);
+            function update_circ_motion(){
+                // Start of drawing.
+                var x = centre_x + Math.cos(angle) * offset_x;
+                var y = centre_y + Math.sin(angle) * offset_y;
+                // update the angle according to the speed.
+                angle += speed;
+
+                // Start Drawing.
+                context.fillStyle = "red";
+                context.clearRect(0,0, width, height);
                 draw_coordinate_axis(context, width, height ,"#FFFFFF");
-                // Start.
                 context.beginPath();
-                // Input: centre (x,y), radius , begin angle, end angle.
-                const radius = 1;
-                context.arc(p1.position.getX(), p1.position.getY(), radius, 0, Math.PI * 2, false);
+                context.arc(x, y, radius, start_angle, end_angle, false);
                 context.fill();
 
-                //updating the point's position
-                //p1.update1();
-                p1.updateWithFunction();
-          
                 // End of animation.
-                requestAnimationFrame(update);
-            }
-        };
-
+                requestAnimationFrame(update_circ_motion);
+            };
+        }
     </script>
 </body>
 </html>

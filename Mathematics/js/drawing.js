@@ -7,7 +7,7 @@
 // Output: the co-ordinate axis is drawn in the color specified.
 // Note: It draw an axis over the entire canvas.
 // **************************************************************
-function draw_coordinate_axis(ctx, width, height,color){
+function draw_coordinate_axis(ctx, width, height, color){
     // Drawing the co-ordinate axis.
     // -----------------------------
     // Setting color and style.
@@ -23,6 +23,5 @@ function draw_coordinate_axis(ctx, width, height,color){
     ctx.moveTo(0, height/2);
     ctx.lineTo(width, height/2);
     ctx.stroke();
-    
     // Drawing the markers.
 }

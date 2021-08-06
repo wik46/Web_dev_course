@@ -72,11 +72,13 @@ var point = {
     // Note that both these entities are vectors.
     position: null,
     velocity: null,
+    time: 0,
 
     // Constructor.
     create: function(x, y, speed, direction){
         var obj = Object.create(this);
-        obj.position = vector.create(x,y);
+        // This makes so that the centre is
+        obj.position = vector.create(x ,y) ;
         obj.velocity = vector.create(0,0);
         // The magnitude of the velocity represents its speed.
         obj.velocity.setLength(speed);
@@ -88,8 +90,15 @@ var point = {
 
     // This function is used to update the position of the point according to its 
     // position and velocity.
-    update: function(){
-        this.position = this.position.add(this.velocity);  
-    }
 
+    // 1. Type of movement here is just linear.
+    update1: function(){
+        this.position = this.position.add(this.velocity);  
+    },
+
+    // 2. This type of movement wil represent draw the function given.
+    updateWithFunction: function(inc){
+        this.time += 0.01;
+        this.position.setX(this.position.getX() - Math.sin(this.time));
+    }
 };
