@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Circular Motion</title>
+    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script src="js/drawing.js"></script> 
+    <style type="text/css">
+        body, h1, p, ul{
+            margin:0px;
+            padding:0px;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+            background-color: #F5F5F7 ;
+        }
+
+        div.block{
+            border: 1px solid black;
+            width: 80%;
+            height: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .first_canvas{
+            border: 1px solid black;
+            background-color: black;
+            width: 90%;
+            height: 100%;
+        }
+        .side_block{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Start of navabr-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            &#X1F305; morningperson</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"> &#X1F3E1; Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About the page</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Mathematics/circular_motion3.html"> &#X222C; Mathematics</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">&#X1F4DF; Computer Science</a></li>
+                  <li><a class="dropdown-item" href="#">&#X1F3CB; Crossfit</a></li>
+                  <li><a class="dropdown-item" href="#">&#X1F4D6; Reading List</a></li>
+                  <li><a class="dropdown-item" href="#">&#X1F3B5; Music</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">&#X1F3C6; Goal</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <hr>
+      <br>
+       <!-- End of Navbar -->
+  
+    <hr>
+    <!-- **************************************************************** -->
+    <!-- Functions -->
+    <!-- **************************************************************** -->
+
+    <div class="container-fluid">  
+        <h3>Circular Motion</h3>
+        <p>The movements of these points are governed by sine and cosine functions.</p>
+        <hr>
+        <div class="row">
+            <div class="col-9">
+                <canvas class="first_canvas" id="can1">
+                </canvas>
+            </div>
+            <div class="col-3 side_block">
+                <br>
+                <h3>Controls</h3>
+                <hr>
+                <p>Speed</p>
+                <input type="range" min="-2" max="2" step="0.001" id="speed_slider">
+                <p id="current_speed"></p>
+                <hr>
+                <p>X-Distance</p>
+                <input type="range" min="1" max="width/1.1" step="0.001" value="width/2" id="offset_x_slider">
+                <p id="current_offset_x"></p>
+                <hr>
+                <p>Y-Distance</p>
+                <input type="range" min="1" max="height/1.1" step="0.001" value="height/2" id="offset_y_slider">
+                <p id="current_offset_y"></p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- **************************************************************** -->
+
+    <div class="container-fluid">  
+        <h3>Horizontal and Verical Motion</h3>
+        <p>See the movement along the x-axis and y-axis.</p>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                <canvas class="first_canvas" id="can2">
+                </canvas>
+            </div>
+
+            <div class="col-6">
+                <canvas class="first_canvas" id="can2">
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <br>
+     <!-- **************************************************************** -->
+     
+     <div class="container-fluid">  
+        <h3>Horizontal and Verical Motion</h3>
+        <p></p>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <canvas class="first_canvas" id="can3">
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <script type="text/JavaScript">
+        // When the window opens.
+        window.onload = function(){
+            var can1 = document.getElementById('can1'),
+                // this is the object we graph all the graphics on.
+                context = can1.getContext("2d"),
+                width = can1.width,
+                height = can1.height;
+            // Filling the the 10x10 area white.
+            context.fillStyle = "#FFFFFF";    
+            // Draw co-ordinate axis.
+            draw_coordinate_axis(context, width, height ,"#FFFFFF");
+
+
+            var centre_x = width/2,
+                centre_y = height/2,
+                offset_x = 50,
+                offset_y = 50,
+                speed = 0.05,
+                angle = 0;
+            var x_pos = centre_x + 50, 
+                y_pos = centre_y;
+            // Start drawing.
+            //update();
+
+            
+            context.beginPath();
+            
+            // This set constants for the point.
+            const radius = 1;
+            const start_angle = 0, end_angle = Math.PI * 2;
+            // Start of Circle Path
+
+            update_circ_motion();
+
+
+           
+            // =======================================================
+            // function name: update_circ_motion()
+            // Description: This function is used to make points move.
+            // Inspiraation: Coding Math YouTube channel.
+            // Link: https://www.youtube.com/user/codingmath
+            // Last modified: Aug 5, 2021
+            // =======================================================
+            function update_circ_motion(){
+                // Updating the speed based on the slider.
+                speed = parseFloat(document.getElementById('speed_slider').value);
+                document.getElementById('current_speed').innerHTML = speed;
+                // Updating the x-distance based on the slider.
+                offset_x = parseFloat(document.getElementById('offset_x_slider').value);
+                document.getElementById('current_offset_x').innerHTML = offset_x;
+                // Updating the y-distance based on the slider.
+                offset_y = parseFloat(document.getElementById('offset_y_slider').value);
+                document.getElementById('current_offset_y').innerHTML = offset_y;
+
+                // Start of drawing.
+                var x = centre_x + Math.cos(angle) * offset_x;
+                var y = centre_y + Math.sin(angle) * offset_y;
+                // update the angle according to the speed.
+                // Anti-ClockWize.
+                angle -= speed;
+                // ClockWize;
+                //angle -= speed;
+
+                // Start Drawing.
+                context.fillStyle = "red";
+                context.clearRect(0,0, width, height);
+                draw_coordinate_axis(context, width, height ,"#FFFFFF");
+                context.beginPath();
+                context.arc(x, y, radius, start_angle, end_angle, false);
+                context.fill();
+
+                // End of animation.
+                requestAnimationFrame(update_circ_motion);
+            };
+        }
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+</body>
+</html>
