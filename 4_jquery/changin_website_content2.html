@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+         <!-- ********************************** -->
+        <!-- Part 1/2: Bootstrap -->
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <!-- ********************************** -->
+
+        <!-- CDN for Jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- ********************************** -->
+
+        <!-- Adding my stylesheet.-->
+        <link rel="stylesheet" type="text/css" href="css/style4.css">
+
+        <title>Changing content 2</title>
+
+    </head>
+    <body class="bg-light">
+
+        <div class="container">
+            <h1>Changing Website Content</h1>
+            <div class="row">
+                <p>Rember that jQuery uses #my_id for id selection and 
+                    .my_class for class selection.
+                </p>
+            </div>
+        </div>
+
+        <div class="container container_border">
+            <div class="row row_border">
+                <h3>Example 1: Types of Interaction</h3>
+                <div id="col1" class="col-4">
+                    <div id="sq1" class="square bg-primary">
+                        <p class="p_inside_sq">1. Hover Over Me.</p>
+                    </div> 
+                </div>
+                <div id="col2" class="col-4">
+                    <div id="sq2" class="square bg-success">
+                        <p class="p_inside_sq">2. Click Me A Few Times.</p>
+                    </div> 
+                </div>
+                <div id="col3" class="col-4">
+                    <div id="sq3" class="square bg-secondary">
+                        <p class="p_inside_sq">3. Move Moue In/Out of Me.</p>
+                    </div> 
+                </div>
+            </div>
+            <br>
+            <div class="row row_border">
+                <h3>Example 1: Output</h3>
+                <div id="col1_" class="col-4">
+                    <div id="sq1_" class="square bg-primary"></div> 
+                </div>
+                <div id="col2_" class="col-4">
+                    <div id="sq2_" class="square bg-success"></div> 
+                </div>
+                <div id="col3_" class="col-4">
+                    <div id="sq3_" class="square bg-secondary"></div> 
+                </div>
+            </div>
+        </div>
+        <br>
+
+    <script type="text/JavaScript">
+        // This is a great way to test if jquery is loaded.
+        // If the jQuery variable is undefined we know that jQuery did not
+        // load properly.
+
+        // Case 1: Load Successful
+        if (typeof(jQuery) != "undefined"){
+            // ======================
+            // Start of the jquery.
+            // ======================
+            // 1. Output a message if you hover over a div.
+            $('#sq1').hover(   
+                function(){
+                    $('#sq1_').html("<p>You hovered over square 1</p>");
+                }
+            );
+
+            // 2. Change the square to a circle.
+            $('#sq2').click(
+                function (){
+                        if( $('#sq2_').attr('class') == "circle bg-success"){ 
+                            $('#sq2_').attr("class","square bg-success");
+                        }else{
+                            $('#sq2_').attr("class","circle bg-success");    
+                        }    
+                }
+            );
+            // 3. Using the mouse over function.
+            $('#sq3').mouseover(
+                // When you hover the mouse over the square.
+                function(){
+                    $('#sq3_').html("You are hovering over the grey square.");
+                }
+            ).mouseout(
+                // When you take your mouse away from the sqaure
+                function(){
+                    $('#sq3_').html("")
+                }
+            );
+            // ============================
+            // Example 2: .
+            // ============================
+        // Case 2: Load Unsuccessful.
+        }else{
+            alert("Jquery did not load correctly, please inform owner of the site.");
+            alert(typeof(jQuery));
+        }
+
+    </script>    
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Part 2/2: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    
+    </body>
+</html>

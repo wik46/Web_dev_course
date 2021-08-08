@@ -7,35 +7,14 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/math.css">
     <script src="js/drawing.js"></script> 
-    <style type="text/css">
-        body, h1, p, ul{
-            margin:0px;
-            padding:0px;
-            font-family: 'Nanum Gothic', sans-serif;
-            text-align: center;
-            background-color: #F5F5F7 ;
-        }
+    <!-- CDN for Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- ********************************** -->
 
-        div.block{
-            border: 1px solid black;
-            width: 80%;
-            height: 550px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .first_canvas{
-            border: 1px solid black;
-            background-color: black;
-            width: 90%;
-            height: 100%;
-        }
-        .side_block{
-            border: 1px solid black;
-        }
-    </style>
+
 </head>
 <body>
     <!-- Start of navabr-->
@@ -55,7 +34,7 @@
                 <a class="nav-link" href="#">About the page</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Mathematics/circular_motion3.html"> &#X222C; Mathematics</a>
+                <a class="nav-link" href="mathematics_index.html"> &#X222C; Mathematics</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -92,7 +71,7 @@
     <!-- Functions -->
     <!-- **************************************************************** -->
 
-    <div class="container-fluid">  
+    <div class="container">  
         <h3>Circular Motion</h3>
         <p>The movements of these points are governed by sine and cosine functions.</p>
         <hr>
@@ -105,53 +84,88 @@
                 <br>
                 <h3>Controls</h3>
                 <hr>
-                <p>Speed</p>
-                <input type="range" min="-2" max="2" step="0.001" id="speed_slider">
-                <p id="current_speed"></p>
+                <div class="row">
+                  <div class="col-6">
+                    <p>Speed</p>
+                    <input type="range" min="-2" max="2" step="0.001" id="speed_slider">
+                    <p id="current_speed"></p>
+                  </div>
+                  <!-- Start of 4 buttons on the side. -->
+                  <div class="col-3"> 
+                    <div class="row-4">
+                      <button id="stop_button" class="btn btn-outline-secondary btn-sm" type="button"
+                              value=0>
+                        Stop
+                      </button>
+                    </div>
+                    <br>
+                    <div class="row-4">
+                      <button id="return_circle_button" class="btn btn-outline-secondary btn-sm" type="button">
+                        Circle
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-3"> 
+                    <div class="row-4">
+                      <button id="draw_circle" class="btn btn-outline-secondary btn-sm" type="button" value="false">&#X25CB;</button>
+                    </div>
+                    <br>
+                    <div class="row-4">
+                      <button id="draw_triangle" class="btn btn-outline-secondary btn-sm" type="button" value="false">&#X25FF;</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- End of 4 buttons on the side. -->
                 <hr>
-                <p>X-Distance</p>
-                <input type="range" min="1" max="width/1.1" step="0.001" value="width/2" id="offset_x_slider">
-                <p id="current_offset_x"></p>
+                <div class="row">
+                  <div class="col-6">
+                    <p>X-Distance</p>
+                    <input type="range" min="1" max="width/1.1" step="0.001" value="50.5" id="offset_x_slider">
+                    <p id="current_offset_x"></p>
+                  </div>
+                  <div class="col-6">
+                    <p>Y-Distance</p>
+                    <input type="range" min="1" max="72" step="0.001" value="50.5" id="offset_y_slider">
+                    <p id="current_offset_y"></p>
+                  </div>
+                </div> 
                 <hr>
-                <p>Y-Distance</p>
-                <input type="range" min="1" max="height/1.1" step="0.001" value="height/2" id="offset_y_slider">
-                <p id="current_offset_y"></p>
+                <!-- ********************************** -->
+                <div id="the_point_position" class="row">
+                  <div class="col-3">
+                    <strong>x</strong>
+                    <div class="g_values">
+                      <p id="x_dist"></p>
+                    </div>
+                  </div>
+                  <div class="col-3"> 
+                    <strong>y</strong>
+                      <div class="g_values">
+                        <p id="y_dist"></p>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                    <strong>r</strong>
+                    <div class="g_values">
+                      <p id="r_dist"></p>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <strong>&#x3B8;</strong>
+                    <div class="g_values">
+                      <p id="t_angl"></p>
+                    </div>
+                  </div>
+                </div>
+                <!-- --------------------------------------- -->
             </div>
         </div>
     </div>
     <br>
     <!-- **************************************************************** -->
 
-    <div class="container-fluid">  
-        <h3>Horizontal and Verical Motion</h3>
-        <p>See the movement along the x-axis and y-axis.</p>
-        <hr>
-        <div class="row">
-            <div class="col-6">
-                <canvas class="first_canvas" id="can2">
-                </canvas>
-            </div>
-
-            <div class="col-6">
-                <canvas class="first_canvas" id="can2">
-                </canvas>
-            </div>
-        </div>
-    </div>
-    <br>
-     <!-- **************************************************************** -->
      
-     <div class="container-fluid">  
-        <h3>Horizontal and Verical Motion</h3>
-        <p></p>
-        <hr>
-        <div class="row">
-            <div class="col-12">
-                <canvas class="first_canvas" id="can3">
-                </canvas>
-            </div>
-        </div>
-    </div>
+  
     <script type="text/JavaScript">
         // When the window opens.
         window.onload = function(){
@@ -165,30 +179,31 @@
             // Draw co-ordinate axis.
             draw_coordinate_axis(context, width, height ,"#FFFFFF");
 
-
+            // ================================
+            // Initial Values.
+            // ================================
+            const init_offset = 50.5;
             var centre_x = width/2,
                 centre_y = height/2,
-                offset_x = 50,
-                offset_y = 50,
+                offset_x = init_offset,
+                offset_y = init_offset,
                 speed = 0.05,
                 angle = 0;
             var x_pos = centre_x + 50, 
                 y_pos = centre_y;
-            // Start drawing.
-            //update();
+            // this is used to determine when to display the circular path and triangle.
+            var display_cicular_path = false,
+                display_triangle = false;
 
-            
-            context.beginPath();
-            
+            // ================================
+            //context.beginPath(); 
             // This set constants for the point.
             const radius = 1;
             const start_angle = 0, end_angle = Math.PI * 2;
+
+            // =======================================================
             // Start of Circle Path
-
-            update_circ_motion();
-
-
-           
+            update_circ_motion();           
             // =======================================================
             // function name: update_circ_motion()
             // Description: This function is used to make points move.
@@ -197,6 +212,9 @@
             // Last modified: Aug 5, 2021
             // =======================================================
             function update_circ_motion(){
+                // ================================================================
+                // Updating graphs based on user input.
+                // ================================================================
                 // Updating the speed based on the slider.
                 speed = parseFloat(document.getElementById('speed_slider').value);
                 document.getElementById('current_speed').innerHTML = speed;
@@ -206,24 +224,112 @@
                 // Updating the y-distance based on the slider.
                 offset_y = parseFloat(document.getElementById('offset_y_slider').value);
                 document.getElementById('current_offset_y').innerHTML = offset_y;
+                // Setting speed to zero when clicked.
+                document.getElementById('stop_button').onclick = function(){
+                  document.getElementById('speed_slider').value = 0;
+                  speed = 0;
+                  document.getElementById('current_speed').innerHTML = speed;
+                };
+                // Returning the offsets so that point moves in circle.
+                document.getElementById('return_circle_button').onclick = function(){
+                  // Value of the slider.
+                  document.getElementById('offset_x_slider').value = init_offset;
+                  // Value of number on screen.
+                  document.getElementById('current_offset_x').innerHTML = init_offset;
+                  // Value used by point.
+                  offset_x = init_offset;
+                  // Value of the slider.
+                  document.getElementById('offset_y_slider').value = init_offset;
+                  // Value of number on screen.
+                  document.getElementById('current_offset_y').innerHTML = init_offset;
+                  // Value used by point.
+                  offset_y = init_offset;
+                };
+                // Setting value true/false if circular path must be displayed.
+                // * Used jquery for practise.
+                document.getElementById('draw_circle').onclick = function(){
+                    console.log("[First] " + $("#draw_circle").attr("value"));
+                    var draw = $("#draw_circle").attr("value");
+                    if(draw == "false"){
+                      $("#draw_circle").attr("value","true");
+                      display_cicular_path = true;
+                    }else if(draw == "true"){
+                      $("#draw_circle").attr("value","false");
+                      display_cicular_path = false;
+                    }
+                    console.log("[last] " + $("#draw_circle").attr("value"));
+                  }
+                  
+          
+                // Setting value true/false if triangle must be displayed.
+                document.getElementById('draw_triangle').onclick = function(){
+                    //console.log(typeof $("#draw_triangle").attr("value"));
+                    var draw = $("#draw_triangle").attr("value");
+                    if(draw == "false"){
+                      $("#draw_triangle").attr("value","true");
+                      display_triangle = true;
+                    }else if(draw == "true"){
+                      $("#draw_triangle").attr("value","false");
+                      display_triangle = false;
+                    }
+                  }  
 
+                // ================================================================
+
+                // ================================================================
                 // Start of drawing.
-                var x = centre_x + Math.cos(angle) * offset_x;
-                var y = centre_y + Math.sin(angle) * offset_y;
+                // ================================================================
+                x = centre_x + Math.cos(angle) * offset_x;
+                y = centre_y + Math.sin(angle) * offset_y;
                 // update the angle according to the speed.
                 // Anti-ClockWize.
                 angle -= speed;
                 // ClockWize;
                 //angle -= speed;
 
-                // Start Drawing.
+                // Displaying the values of where the point is.
+                var x_distance = x - centre_x, y_distance = -(y - centre_y),
+                    r_distance = Math.sqrt(x_distance*x_distance + y_distance*y_distance),
+                    t_angle = Math.acos(x_distance/ r_distance);
+                document.getElementById('x_dist').innerHTML = (x_distance).toFixed(5);
+                // Canvas is reversed from the mathematical way to think about an axis.
+                document.getElementById('y_dist').innerHTML = (y_distance).toFixed(5);
+                document.getElementById('r_dist').innerHTML = (r_distance).toFixed(5);
+                document.getElementById('t_angl').innerHTML = (t_angle).toFixed(5);
+
                 context.fillStyle = "red";
                 context.clearRect(0,0, width, height);
+                // Drawing all the static content.
+                // 1. Draw co-ordinate axis.
                 draw_coordinate_axis(context, width, height ,"#FFFFFF");
+                // 2. The option to trace out the path that the point moves along.
+                if(display_cicular_path){
+                  context.beginPath();
+                  context.ellipse(centre_x, centre_y, offset_x, offset_y, start_angle, end_angle, false);
+                  context.stroke();
+                }
+                // 3. The option to draw a triangle.
+                if(display_triangle){
+                  context.beginPath();
+                  // radial length.
+                  context.moveTo(centre_x, centre_y);
+                  context.lineTo(x, y);
+                  // x-distance.
+                  context.moveTo(centre_x, centre_y);
+                  context.lineTo(x, height/2);
+                  // y-distance.
+                  context.moveTo(x, height/2);
+                  context.lineTo(x, y);
+
+                  context.stroke();
+                }
+
                 context.beginPath();
+                // Drawing the point.
                 context.arc(x, y, radius, start_angle, end_angle, false);
                 context.fill();
 
+                
                 // End of animation.
                 requestAnimationFrame(update_circ_motion);
             };

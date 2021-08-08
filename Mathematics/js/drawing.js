@@ -11,7 +11,7 @@ function draw_coordinate_axis(ctx, width, height, color){
     // Drawing the co-ordinate axis.
     // -----------------------------
     // Setting color and style.
-    ctx.lineWidth = 0.5;
+    ctx.lineWidth = 1;
     ctx.strokeStyle = color;
     // Drawing y-axis.
     ctx.beginPath();
@@ -23,5 +23,5 @@ function draw_coordinate_axis(ctx, width, height, color){
     ctx.moveTo(0, height/2);
     ctx.lineTo(width, height/2);
     ctx.stroke();
-    // Drawing the markers.
+
 }

@@ -1,0 +1,33 @@
+body, h1, p{
+    margin: 0px;
+    text-align: center;
+}
+.container_border{
+    border: 1px solid black;
+}
+.row_border{
+    border: 1px solid navy;   
+}
+.p_inside_sq{
+    margin: 5px;
+}
+div.square{
+    width: 100px;
+    height:100px;
+    margin:auto;
+    margin-top: 30px;
+}
+div.circle{
+    width: 100px;
+    height:100px;
+    margin:auto;
+    margin-top: 30px;
+    border-radius:  50%; /* This makes the square a circle. */
+}
+#circle{
+    width: 100px;
+    height:100px;
+    margin:auto;
+    margin-top: 30px;
+    border-radius:  50%; /* This makes the square a circle. */
+}

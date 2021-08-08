@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+         <!-- ********************************** -->
+        <!-- Part 1/2: Bootstrap -->
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <!-- ********************************** -->
+
+        <!-- CDN for Jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- ********************************** -->
+
+        <!-- Adding my stylesheet.-->
+        <link rel="stylesheet" type="text/css" href="css/style4.css">
+
+        <title>Intro to Jquery 1</title>
+
+    </head>
+    <body class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>Intro To Jquery</h1>
+                    <p>Jquery is a JavaScript framework. That is it sits on top of 
+                        JS and allows helps you perform interative tasks very easily.
+                    </p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+        <div class="container container_border">
+            <div class="row">
+                <div class="col">
+                    <h3>Testing to see if Jquery is working.</h3>
+                    <p>Jquery gives use a variable "jQuery" that we 
+                        can use to see if it loaded succesfully.
+                    </p>
+                </div>
+            </div>
+            <div class="row row_border bg-success">
+                <p id="test_jquery">
+                    If this text shows, then jquery did not load correctly.
+                </p>
+            </div>
+        </div>
+        <br>
+        <!-- EXample 1 -->
+        <div class="container container_border">
+            <div class="row">
+                <div class="col">
+                    <h3>Clicking Button Example</h3>
+                    <p>This section shows how easy jQuery makes detecting clicks for us.
+                    </p>
+                </div>
+            </div>
+            <div class="row row_border" style=" height: 160px;">
+                <div class="col-4">
+                    <div class="square bg-secondary">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div id="circle" class="bg-primary">
+
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="square bg-secondary">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    <script type="text/JavaScript">
+        // This is a great way to test if jquery is loaded.
+        // If the jQuery variable is undefined we know that jQuery did not
+        // load properly.
+
+        // Case 1: Load Successful
+        if (typeof(jQuery) != "undefined"){
+            document.getElementById('test_jquery').innerHTML = "Jquery loaded succesfully";
+            //alert(typeof(jQuery) + ": means it loaded successfully");
+        // Case 2: Load Unsuccessful.
+        }else{
+            alert("Jquery did not load correctly, please inform owner of the site.");
+            alert(typeof(jQuery));
+        }
+        // ======================
+        // Start of the jquery.
+        // ======================
+
+        // ============================
+        // Example 1: Button Clicking.
+        // ============================
+        // You pass a function in that you want to perform when the circle is clicked.
+        $("#circle").click(
+            function(){
+                alert("circle clicked");
+            }
+        );
+        $(".square").click(
+            function(){
+                alert("square clicked");
+            }
+        );
+
+
+
+    </script>    
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Part 2/2: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    
+    </body>
+</html>
