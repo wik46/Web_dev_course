@@ -71,8 +71,8 @@
     <!-- Functions -->
     <!-- **************************************************************** -->
 
-    <div class="container">  
-        <h3>Circular Motion</h3>
+    <div class="container-fluid">  
+        <h3 >Circular Motion</h3>
         <p>The movements of these points are governed by sine and cosine functions.</p>
         <hr>
         <div class="row">
@@ -80,83 +80,87 @@
                 <canvas class="first_canvas" id="can1">
                 </canvas>
             </div>
-            <div class="col-3 side_block">
+            <div id="control_output" class="col-3 side_block">
                 <br>
-                <h3>Controls</h3>
-                <hr>
                 <div class="row">
-                  <div class="col-6">
-                    <p>Speed</p>
+                  <div class="col-12">
+                    <p style="font-size: 80%;">Speed</p>
                     <input type="range" min="-2" max="2" step="0.001" id="speed_slider">
                     <p id="current_speed"></p>
                   </div>
+                 </div> 
                   <!-- Start of 4 buttons on the side. -->
-                  <div class="col-3"> 
-                    <div class="row-4">
-                      <button id="stop_button" class="btn btn-outline-secondary btn-sm" type="button"
+                 
+                  
+                  <div class="row">
+                    <div class="col-md-3">
+                      <button id="stop_button" class="btn btn-outline-secondary btn-sm " type="button"
                               value=0>
-                        Stop
+                        <span style="font-size: 80%;">Stop</span>
                       </button>
                     </div>
-                    <br>
-                    <div class="row-4">
+                
+                    <div class="col-md-3">
                       <button id="return_circle_button" class="btn btn-outline-secondary btn-sm" type="button">
-                        Circle
+                        <span style="font-size: 80%;">Circle</span>
                       </button>
                     </div>
-                  </div>
-                  <div class="col-3"> 
-                    <div class="row-4">
+                    <div class="col-md-3"> 
+                    
                       <button id="draw_circle" class="btn btn-outline-secondary btn-sm" type="button" value="false">&#X25CB;</button>
                     </div>
-                    <br>
-                    <div class="row-4">
+                    <div class="col-md-3 ">
                       <button id="draw_triangle" class="btn btn-outline-secondary btn-sm" type="button" value="false">&#X25FF;</button>
                     </div>
                   </div>
-                </div>
+                
+             
                 <!-- End of 4 buttons on the side. -->
                 <hr>
-                <div class="row">
-                  <div class="col-6">
-                    <p>X-Distance</p>
+                
+                  <div class="row">
+                    <p style="font-size: 80%;">X-Distance</p>
                     <input type="range" min="1" max="width/1.1" step="0.001" value="50.5" id="offset_x_slider">
                     <p id="current_offset_x"></p>
                   </div>
-                  <div class="col-6">
-                    <p>Y-Distance</p>
+                  <hr>
+                  <div class="row">
+                    <p style="font-size: 80%;">Y-Distance</p>
                     <input type="range" min="1" max="72" step="0.001" value="50.5" id="offset_y_slider">
                     <p id="current_offset_y"></p>
                   </div>
-                </div> 
+                
                 <hr>
                 <!-- ********************************** -->
-                <div id="the_point_position" class="row">
-                  <div class="col-3">
+                
+                <div id="the_point_position" class="row" style="visibility: hidden;">
+                  <div class="col-md-3">
                     <strong>x</strong>
                     <div class="g_values">
                       <p id="x_dist"></p>
                     </div>
                   </div>
-                  <div class="col-3"> 
+                  <div class="col-md-3"> 
                     <strong>y</strong>
+                      
                       <div class="g_values">
                         <p id="y_dist"></p>
                       </div>
                   </div>
-                  <div class="col-3">
+                  <div class="col-md-3">
                     <strong>r</strong>
                     <div class="g_values">
                       <p id="r_dist"></p>
                     </div>
                   </div>
-                  <div class="col-3">
+                  <div class="col-md-3">
                     <strong>&#x3B8;</strong>
                     <div class="g_values">
                       <p id="t_angl"></p>
                     </div>
                   </div>
                 </div>
+                
                 <!-- --------------------------------------- -->
             </div>
         </div>
@@ -215,6 +219,26 @@
                 // ================================================================
                 // Updating graphs based on user input.
                 // ================================================================
+                // Only display the running values when the user hovers over it.
+                $('#can1').mouseover(
+                  function(){
+                    $('#the_point_position').attr("style","visibility: visible;");
+                  }
+                ).mouseout(
+                  function(){
+                    $('#the_point_position').attr("style","visibility: hidden;");
+                  }
+                );
+                $("#control_output").mouseover(
+                  function(){
+                    $('#the_point_position').attr("style","visibility: visible;");
+                  }
+                ).mouseout(
+                  function(){
+                    $('#the_point_position').attr("style","visibility: hidden;");
+                  }
+                );
+                
                 // Updating the speed based on the slider.
                 speed = parseFloat(document.getElementById('speed_slider').value);
                 document.getElementById('current_speed').innerHTML = speed;
