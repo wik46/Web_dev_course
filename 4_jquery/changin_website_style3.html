@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- ********************************** -->
+       <!-- Part 1/2: Bootstrap -->
+       <!-- Required meta tags -->
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <!-- Bootstrap CSS -->
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+       <!-- ********************************** -->
+
+       <!-- CDN for Jquery -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <!-- ********************************** -->
+
+       <!-- Adding my stylesheet.-->
+       <link rel="stylesheet" type="text/css" href="css/style4.css">
+
+       <title>Changing Style With Jquery</title>
+
+   </head>
+    <body>
+        <div class="container container_border">
+            <div class="row">
+                <div class="col">
+                    <h1 id="main_heading">Changing Website Style with Jquery</h1>
+                </div>
+            </div>
+        </div>
+        <hr>
+       
+        <div class="container container_border">
+            <div class="row">
+                <div class="col">
+                    <h3>Example 1</h3>
+                    
+                </div>
+            </div>
+            <hr>
+           
+            <div class="row">
+                 <!-- Red Square -->
+                <div class="col-2">
+                    <div id="red_sq" class="square" style="background-color: red;">Hover</div>
+                    <div id="red_sq_out" class="container_border"></div>
+                </div>
+                 <!-- Brown Square -->
+                <div class="col-2">
+                    <div id="brown_sq" class="square" style="background-color:  chocolate;">Click</div>
+                    <div id="brown_sq_out" class="container_border"></div>
+                </div>
+                 <!-- -->
+                <div class="col-2" id="col_2">
+                    <div class="square"  id="grey_sq">
+                        <div class="triangle-up" style="margin: 0 auto;" 
+                             id="blue_tri"></div>
+                        <div class="triangle-up" style="margin: 0 auto; border-bottom: 50px solid forestgreen ;"
+                             id="green_tri"></div>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+                <!-- -->
+                <div class="col-2 container_border">
+                    <div class="row-3 container_border" id="in1">
+                        <button>Background Color</button>
+                    </div>
+                    <div class="row-3 container_border" id="in2">
+                        <button>Display Screen Width</button>
+                    </div>
+                    <div class="row-3 container_border" id="in3">
+                        <button>Display Screen Height</button>
+                    </div>
+                    <div class="row-3 container_border" id="in4">
+                        <button>Change Heading Font</button>
+                    </div>
+                </div>
+                <div class="col-2 container_border" id="output1">
+
+                </div>
+            </div>
+        </div>
+        <!-- *************************************************************** -->
+        <br>
+        <hr>
+        <div class="container container_border">
+            <div class="row">
+                <div class="col">
+                    <h3>Example 2: using "this" keywoard.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+
+                </div>
+                <div class="col-2">
+
+                </div>
+                <div class="col-2">
+
+                </div>
+                <div class="col-2">
+
+                </div>
+                <div class="col-2">
+
+                </div>
+                <div class="col-2">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <canvas class="canvas">
+                        
+                    </canvas>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Canvas Stats</h3>
+                <div class="col-2">
+                    Canvas width
+                </div>
+                <div class="col-2">
+                    Canvas Height
+                </div>
+            </div>
+        </div>
+
+        <script type="text/JavaScript">
+            // Case 1: Load Successful
+            if (typeof(jQuery) != "undefined"){
+                alert(typeof(jQuery) + ": means it loaded successfully");
+                // Example a:
+                $("#red_sq").mouseover(
+                    function(){
+                        // 'this' is a javascript key word and it refers to the current object.
+                        var cur_id = $(this).attr("id");
+                        $("#red_sq_out").html("The red square's id is: " + cur_id);
+                    }
+                ).mouseout(
+                    function(){
+                        $("#red_sq_out").html("");
+                    }
+                );
+                // Example b: 
+                $("#brown_sq").click(
+                    function(){
+                        // 'this' is a javascript key word and it refers to the current object.
+                        var cur_w = $(this).css("width");
+                        var cur_disp = $("#brown_sq_out").html();
+                        if(cur_disp == ""){
+                            $("#brown_sq_out").html("The brown square's width is: " + cur_w);
+                        }else{
+                            $("#brown_sq_out").html("");
+                        }
+                    }
+                );
+                // Example 1: We change the color of the square if it is clicked.
+                $("#grey_sq").click(
+                    function(){
+                        // Changing the css as we go allong.
+                        // Note that it returns the "rgb" codes
+                        if( $("#grey_sq").css("background-color") != "rgb(255, 0, 0)"){
+                            // If the color is not red, we change it to red.
+                            $("#grey_sq").css("background-color","red");
+                        }else{
+                            // If it is red we change it back to forestgreen.
+                            $("#grey_sq").css("background-color","rgb(112, 128, 144)");
+                        }
+                    }
+                );
+                // Example 1: Changing the background-color of the body.
+                $("#in1").click(
+                    function(){
+                        var body_col = $("body").css("background-color");
+                        if(body_col == "rgb(255, 255, 255)"){
+                            $("body").css("background-color","rgb(214, 214, 214)")
+                        }else{
+                            $("body").css("background-color","rgb(255, 255, 255)")
+                        }
+                    }
+                );
+                // Example 2: Returning the screen width.
+                $("#in2").mouseover(
+                    function(){
+                        var body_width = $("body").css("width");
+                        $("#output1").html("<p>" + body_width +"</p>"); 
+                    }
+                ).mouseout(
+                    function(){
+                        $("#output1").html("");
+                    }
+                );
+                // Example 3: Returning the screen Height.
+                $("#in3").mouseover(
+                    function(){
+                        var body_height = $("body").css("height");
+                        $("#output1").html("<p>" + body_height +"</p>"); 
+                    }
+                ).mouseout(
+                    function(){
+                        $("#output1").html("");
+                    }
+                );
+                // Example 4: Changing the Heading font.
+                $("#in4").click(
+                    function(){
+                        var font_fam = $("#main_heading").css("font-family");
+                        if(font_fam != "monospace"){  
+                            $("#main_heading").css("font-family","monospace");
+                        }else{
+                            $("#main_heading").css("font-family","'Palette Mosaic', cursive");
+                        }
+                    }
+                );
+
+
+
+
+
+            // Case 2: Load Unsuccessful.
+            }else{
+                alert(typeof(jQuery) + ": Jquery did not load correctly, please inform owner of the site.");
+            }
+        </script>
+        <!-- Optional JavaScript; choose one of the two! -->
+        <!-- Part 2/2: Bootstrap Bundle with Popper -->
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    
+    </body>
+</html>
