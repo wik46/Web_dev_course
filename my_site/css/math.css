@@ -5,7 +5,9 @@ body, h1, p, ul{
     text-align: center;
     background-color: #F5F5F7 ;
 }
-
+a{
+  text-decoration: none;
+}
 div.block{
     border: 1px solid black;
     width: 80%;
@@ -120,3 +122,6 @@ input[type=range] {
     background: #3071A9;
   }
   /* ------------------------ */
+  .card-text{
+    background-color: #FFFFFF;
+  }
