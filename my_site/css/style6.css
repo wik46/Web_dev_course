@@ -1,0 +1,56 @@
+body, h1, p{
+    margin: 0px;
+    text-align: center;
+}
+#main_heading{
+    font-family: 'Palette Mosaic', cursive;
+}
+.container_border{
+    border: 1px solid black;
+}
+.row_border{
+    border: 1px solid navy;   
+}
+.p_inside_sq{
+    margin: 5px;
+}
+div.square{
+    width: 100px;
+    height:100px;
+    margin:auto;
+    margin-top: 30px;
+    background-color: slategray;
+}
+div.circle{
+    width: 100px;
+    height:100px;
+    margin:auto;
+    margin-top: 30px;
+    border-radius:  50%; /* This makes the square a circle. */
+    
+}
+#circle{
+    width: 100px;
+    height:100px;
+    margin:auto;
+    margin-top: 30px;
+    border-radius:  50%; /* This makes the square a circle. */
+    
+}
+
+
+.canvas{
+    width: 90%;
+    height: 90%;
+    border: 2px inset black;
+}
+.canvas2{
+    width: 90;
+    height: 200px;
+    border: 2px inset black;
+    margin: 0 auto;
+}
+#extra_info{
+    font-size: 50%;
+    text-align: left;
+}
