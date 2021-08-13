@@ -7,8 +7,12 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- CDN for Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- ********************************** -->
 
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
     <script src="js/drawing.js"></script> 
     <link rel="stylesheet" href="css/math.css">
     <style type="text/css">
@@ -52,7 +56,7 @@
     <div class="container-fluid">  
       <hr>
         <h3>History and Famous Mathematicians</h3>
-        <p>The movements of these points are governed by sine and cosine functions.</p>
+        <p>This will be a section where we explore the history of Mathematics and the people behind it.</p>
         <hr>
         <div class="row">
             <div class="col-3 ">
@@ -113,18 +117,21 @@
       <div class="row">
           <!-- Card 1-->
           <div class="col-3 ">
-            <div class="card">
+            <div class="card" >
+              <img src="images/circ_card_photo.png" alt="circ_card_photo" class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title">Circular Motion</h5>
                 <h6 class="card-subtitle mb-2 text-muted"></h6>
-                <p class="card-text">This is a basic program that shows a point moving on a co-ordinate axis.</p>
-                <a href="circular_motion.php" class="btn btn-outline-success btn-sm">Open Tool</a>
+                <p class="card-text"></p>
+                <a href="circular_motion.php" class="btn btn-outline-success btn-sm" data-toggle="tooltip" data-placement="left" 
+                title="This is a basic program that shows a point moving on a co-ordinate axis."
+                >Open Tool</a>
               </div>
             </div>
           </div>
           <!-- ******** -->
           <div class="col-3 ">
-            <div class="card">
+            <div class="card" >
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -134,8 +141,8 @@
               </div>
             </div>
           </div>
-          <div class="col-3 ">
-            <div class="card">
+          <div class="col-3" >
+            <div class="card" >
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -145,8 +152,8 @@
               </div>
             </div>
           </div>
-          <div class="col-3 ">
-            <div class="card">
+          <div class="col-3 " >
+            <div class="card" >
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -169,14 +176,31 @@
       <p>This area looks at the different <strong>branches</strong> of Mathematics.</p>
       <hr>
       <div class="row">
-          <div class="col-3 ">
+          <div class="col-3 " >
             <div class="card">
+              <img src="images/linAlg_card.png" alt="circ_card_photo" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <h5 class="card-title">Linear Algebra</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Introduction</h6>
+                <p class="card-text"></p>
+                <a href="/vector_spaces.php" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
+                title="Axioms, span, subspaces, basis, transformations, matrices, and more."
+                >Vector Spaces</a>
+                <button href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
+                title="3 types of solutions,  finding solutions, ..."
+                >Systems of Equations</button>
+                <button href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
+                title="Answering the question of: What is the determinant?"
+                >Determinants</button>
+                <button href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
+                title="The study of Eigenvalues and Eigenvectors."
+                >Spectral Theory</button>
+                <button href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
+                title="This is a basic program that shows a point moving on a co-ordinate axis."
+                >Inner Product Spaces</button>
+                <button href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
+                title="This is a basic program that shows a point moving on a co-ordinate axis."
+                >Vector Spaces</button>
               </div>
             </div>
           </div>
@@ -221,5 +245,11 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
+    <script type="text/JavaScript">
+      // Enable Tooltips
+      $(function () {
+          $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
 </body>
 </html>
