@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mathematics Index</title>
+    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- CDN for Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- ********************************** -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+
+    <script src="https://unpkg.com/3d-force-graph"></script>
+    <script  src="js/require.js"></script>
+      <!-- <link rel="stylesheet" href="css/math.css"> -->
+    <style type="text/css">
+        body, h1, p, ul{
+            margin:0px;
+            padding:0px;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+            background-color: #F5F5F7 ;
+        }
+
+    </style>
+</head>
+<body>
+ <!--   <?php 
+      include("nav.html");
+    ?> -->
+    <br>
+  
+
+    <div id="3d-graph"></div>
+    <script type="text/JavaScript">
+        // Connection to database
+        const uri = 'neo4j+s://d29ec230.databases.neo4j.io';
+        const user = 'neo4j';
+        const password = 'MGUBIJrMUCwPy6wc9J33qHMX4NPLBF8DqpgO-U_NSAc';
+        (async() => {
+ const neo4j = require('neo4j-driver');
+ 
+ const uri = 'neo4j+s://d29ec230.databases.neo4j.io';
+
+ 
+ const driver = neo4j.driver(uri, neo4j.auth.basic(user, password))
+ const session = driver.session()
+
+ const person1Name = 'Alice'
+ const person2Name = 'David'
+
+ try {
+   // To learn more about the Cypher syntax, see https://neo4j.com/docs/cypher-manual/current/
+   // The Reference Card is also a good resource for keywords https://neo4j.com/docs/cypher-refcard/current/
+   const writeQuery = `MERGE (p1:Person { name: $person1Name })
+                       MERGE (p2:Person { name: $person2Name })
+                       MERGE (p1)-[:KNOWS]->(p2)
+                       RETURN p1, p2`
+
+   // Write transactions allow the driver to handle retries and transient errors
+   const writeResult = await session.writeTransaction(tx =>
+     tx.run(writeQuery, { person1Name, person2Name })
+   )
+   writeResult.records.forEach(record => {
+     const person1Node = record.get('p1')
+     const person2Node = record.get('p2')
+     console.log(
+       `Created friendship between: ${person1Node.properties.name}, ${person2Node.properties.name}`
+     )
+   })
+
+   const readQuery = `MATCH (p:Person)
+                      WHERE p.name = $personName
+                      RETURN p.name AS name`
+   const readResult = await session.readTransaction(tx =>
+     tx.run(readQuery, { personName: person1Name })
+   )
+   readResult.records.forEach(record => {
+     console.log(`Found person: ${record.get('name')}`)
+   })
+ } catch (error) {
+   console.error('Something went wrong: ', error)
+ } finally {
+   await session.close()
+ }
+
+ // Don't forget to close the driver connection when you're finished with it
+ await driver.close()
+})();
+    </script>
+    
+</body>
