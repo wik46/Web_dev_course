@@ -18,7 +18,7 @@
 
     <style type="text/css">
       body{
-        background-image: url('images/mab.jpeg');
+        background-image: url('images/see_pano.jpg');
         background-size: cover;
         text-align: center;
         
