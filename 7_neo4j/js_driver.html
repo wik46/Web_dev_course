@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Neo4j 1</title>
+    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- CDN for Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- ********************************** -->
+    <!-- CDN for MathJax to use latex. -->
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+      </script>
+     <!-- ********************************** -->
+     <!-- Some additional fonts. -->
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <!-- ********************************** -->
+
+    <!-- jsDelivr CDN non-minified -->
+    <script src="https://cdn.jsdelivr.net/npm/neo4j-driver"></script>
+    <style type="text/css">
+        body, h1, p, ul{
+            margin:0px;
+            padding:0px;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+            background-color: #F5F5F7 ;
+        }
+
+        div.block{
+            border: 1px solid black;
+            /*width: 80%;*/
+            height: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+    </style>MGUBIJrMUCwPy6wc9J33qHMX4NPLBF8DqpgO-U_NSAc
+</head>
+<body>
+  
+    
+    <script type="text/JavaScript">
+        //const neo4j = require('neo4j-driver');
+
+        const uri = "neo4j+s://d29ec230.databases.neo4j.io";
+        const user = "neo4j";
+        const password = "MGUBIJrMUCwPy6wc9J33qHMX4NPLBF8DqpgO-U_NSAc";
+       
+
+const driver = neo4j.driver(uri, neo4j.auth.basic(user, password))
+const session = driver.session()
+const personName = 'Alice'
+
+
+  const result =  session.run(
+    'CREATE (a:Person {name: $name}) RETURN a',
+    { name: personName }
+  )
+
+  session.close()
+
+// on application exit:
+ driver.close()
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+  
+</body>
+</html>
