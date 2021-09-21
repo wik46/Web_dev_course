@@ -86,7 +86,7 @@
           <button id="idea" type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal1"
           data-toggle="tooltip" title="This displays a rough visual of how you can think of a vector space."
           >
-                Idea
+                Ideas
           </button>
         </div>
         <div class="col-1">
