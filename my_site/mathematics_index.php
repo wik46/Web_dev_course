@@ -252,9 +252,9 @@
                 <h6 class="card-subtitle mb-2 text-muted">Introduction</h6>
                 <p class="card-text">
                   <!-- Basics -->                  
-                  <button href="trig_basics.php" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
+                  <a href="trig_basics.php" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
                   title="A general discussion of how to think of Trigonometry and how to apply it."
-                  >Basics</button>
+                  >Basics</a>
                   <!-- Triangles -->
                   <button href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
                   title="Motivtions using triangles."
