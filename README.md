@@ -3,7 +3,7 @@ This is the directory where all the code is saved that I used to create my websi
 
 ## Websites
 * [Morning Person](http://morningperson-com.stackstaging.com/)
-* [Web Dev Course](http://webdevcourse6-com.stackstaging.com/) 
+ 
 
 ## Morning Person
 This website contains various topics that I find interesting. I have created a website that provides useful information for anyone who is interested in the same topics that I am. The main goal was to learn the basic architecture of a web application.
