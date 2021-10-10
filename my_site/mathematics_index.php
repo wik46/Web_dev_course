@@ -186,21 +186,21 @@
                 <a href="/vector_spaces.php" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
                 title="Axioms, span, subspaces, basis, transformations, matrices, and more."
                 >Vector Spaces</a>
-                <button href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
+                <a href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
                 title="3 types of solutions,  finding solutions, ..."
-                >Systems of Equations</button>
-                <button href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
+                >Systems of Equations</a>
+                <a href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
                 title="Answering the question of: What is the determinant?"
-                >Determinants</button>
+                >Determinants</a>
                 <button href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
                 title="The study of Eigenvalues and Eigenvectors."
                 >Spectral Theory</button>
                 <button href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
                 title="Still"
                 >Inner Product Spaces</button>
-                <button href="#" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
-                title="Still needed"
-                >???</button>
+                <a href="numerical_la.php" class="btn btn-outline-success btn-sm mb-1" data-toggle="tooltip" 
+                title="Notes from a course in Numerical Linear Algebra (MTH 451)"
+                >Numerical Linear Algebra</a>
               </div>
             </div>
           </div>
@@ -274,7 +274,7 @@
       </h5>
     </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
