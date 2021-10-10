@@ -125,9 +125,10 @@
       <!-- This is just to hide it and change it later. -->
 
       <!-- Intro pdf element-->
+      <!-- Source to use when working locally: "/home/lodewyk/Documents/tutorials/software/Web_dev_course/my_site/images/intro.pdf"-->
       <div class="row" id="intro_pdf" style="display:none; " >
         <div id="canvas_container">
-          <embed src="/home/lodewyk/Documents/tutorials/software/Web_dev_course/my_site/images/intro.pdf" type="application/pdf" width="100%" height="1000px" />
+          <embed src="images/intro.pdf" type="application/pdf" width="100%" height="1000px" />
         </div>
     </div>
 
